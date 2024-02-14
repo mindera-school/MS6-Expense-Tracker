@@ -1,0 +1,9 @@
+body {
+  font-family: Arial, sans-serif;
+}
+#expenses {
+  margin-top: 20px;
+}
+.expense {
+  margin-bottom: 10px;
+}
