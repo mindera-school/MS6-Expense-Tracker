@@ -1,8 +1,7 @@
 package com.example.punished.expensetracker.service;
-
-import com.example.Expense.Tracker.entity.User;
-import com.example.Expense.Tracker.exceptions.InvalidRequestException;
-import com.example.Expense.Tracker.repository.UserRepository;
+import com.example.punished.expensetracker.entity.User;
+import com.example.punished.expensetracker.exceptions.InvalidRequestException;
+import com.example.punished.expensetracker.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
