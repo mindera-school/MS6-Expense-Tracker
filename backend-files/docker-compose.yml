@@ -1,7 +1,7 @@
 version: "3.8"
 
 networks:
-  database_net:
+  database_net_net:
     name: database_net_net
     driver: bridge
 
