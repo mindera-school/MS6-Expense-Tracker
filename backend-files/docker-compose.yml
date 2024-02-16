@@ -1,0 +1,21 @@
+version: "3.8"
+
+networks:
+  database_net:
+    name: database_net
+    driver: bridge
+
+services:
+  database:
+    image: postgres
+    container_name: expense-tracker-container
+    volumes:
+      - ~/.docker-conf/postgres/data/:/var/lib/postgres
+    ports:
+      - 5436:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: expense_tracker_db
+    networks:
+      - database_net
