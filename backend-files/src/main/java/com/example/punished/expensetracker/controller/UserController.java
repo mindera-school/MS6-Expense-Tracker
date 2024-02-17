@@ -1,7 +1,7 @@
 package com.example.punished.expensetracker.controller;
 
-import com.example.Expense.Tracker.entity.User;
-import com.example.Expense.Tracker.service.UserService;
+import com.example.punished.expensetracker.entity.User;
+import com.example.punished.expensetracker.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
