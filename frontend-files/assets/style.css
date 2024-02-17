@@ -4,17 +4,24 @@ body{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+   /*background: rgb(248,233,233);
+  background: linear-gradient(82deg, rgba(248,233,233,1) 0%, rgba(111,170,149,1) 25%, rgba(255, 226, 38, 0.347) 50%, rgba(127,175,134,1) 75%, rgba(248,233,233,1) 100%);
+  */
+  background: rgb(10,20,22);
+  background: linear-gradient(82deg, rgba(10,20,22,1) 0%, rgba(24,50,44,1) 20%, rgba(111,170,149,1) 35%, rgba(222, 202, 158, 0.881) 50%, rgba(111,170,149,1) 65%, rgba(24,50,44,1) 80%, rgba(10,20,22,1) 100%);
 }
 #container-all{
   display: inline-table;
   border-radius: 25px;
   border-style: dashed;
   border-color: #42f3ca;
-  background-color: azure;
+  background-color: rgba(108, 116, 116, 0.814);
   padding: 50px;
   height: 100vh;
+  font-family: "Permanent Marker", cursive;
 }
 h1{
+  font-family: "Sixtyfour", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,16 +45,30 @@ h2,span{
   justify-content: center;
   align-items: center;
 }
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
 #expenses {
+  --border-angle: 0deg;
+  border: 2px solid;
+  border-image: conic-gradient(from var(--border-angle), rgba(248,233,233,1), #42f3ca) 1;
+  border-radius: 5px;
   margin: 20px;
   font-size: 20px;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 2px;
   padding: 10px;
-  border-color: #42f3ca;
   text-align: center;
+  animation: rotate-border 3s infinite linear;
 }
+
+@keyframes rotate-border {
+  from { --border-angle: 0deg; }
+  to { --border-angle: 360deg; }
+}
+
+
 
 .expense{
   margin: 20px;
@@ -59,11 +80,14 @@ h2,span{
   border-color: #42f3ca;
   text-align: center;
   background-color: rgba(50, 240, 205, 0.4);
-  font-size: 20px;;
+  font-size: 20px;
 }
 
-input[type="text"]{
+
+input[type="text"], input[type="number"]{
   width: 50%;
+  background-color: rgba(10,20,22,1);
+  color: #42f3ca;
   padding: 12px 20px;
   margin: 8px;
   display: inline-block;
@@ -71,19 +95,7 @@ input[type="text"]{
   border-radius: 5px;
   box-sizing: border-box;
   text-align: center;
-  font-family: sans-serif;
-  font-size: 22px;
-}
-input[type="number"]{
-  width: 50%;
-  padding: 12px 20px;
-  margin: 8px;
-  display: inline-block;
-  border: 3px solid #42f3ca;
-  border-radius: 5px;
-  box-sizing: border-box;
-  text-align: center;
-  font-family: sans-serif;
+  font-family: "Permanent Marker", cursive;
   font-size: 22px;
 }
 
