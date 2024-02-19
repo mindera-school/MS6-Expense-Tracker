@@ -1,8 +1,9 @@
 package com.example.punished.expensetracker.service;
 
-import com.example.Expense.Tracker.entity.User;
-import com.example.Expense.Tracker.exceptions.InvalidRequestException;
-import com.example.Expense.Tracker.repository.UserRepository;
+
+import com.example.punished.expensetracker.entity.*;
+import com.example.punished.expensetracker.repository.*;
+import com.example.punished.expensetracker.exceptions.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -28,15 +29,15 @@ public class UserService {
                     .build();
         }
 
-        public User getUserById(final Long userId) {
-            Optional<User> userAux = repository.findById(userId);
+        public User getUserById(final int userId) {
+            User userAux = repository.getReferenceById(userId);
             return User.builder()
-                    .username(userAux.get().getUsername())
+                    .username(userAux.getUsername())
                     .build();
         }
-        public void deleteUser(final Long userId) {
-            Optional<User> user = repository.findById(userId);
-            repository.delete(user.get());
+        public void deleteUser(final int userId) {
+            User user = repository.getReferenceById(userId);
+            repository.deleteById(user.getId());
         }
 
 }

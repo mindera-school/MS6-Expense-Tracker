@@ -1,7 +1,7 @@
 package com.example.punished.expensetracker.controller;
 
-import com.example.Expense.Tracker.entity.User;
-import com.example.Expense.Tracker.service.UserService;
+import com.example.punished.expensetracker.entity.*;
+import com.example.punished.expensetracker.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/index")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -29,12 +29,12 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public User getUserById(@PathVariable final Long userId) {
+    public User getUserById(@PathVariable final int userId) {
         return service.getUserById(userId);
     }
 
     @DeleteMapping("/{userId}")
-    public void deleteUser(@PathVariable final Long userId) {
+    public void deleteUser(@PathVariable final int userId) {
         service.deleteUser(userId);
     }
 }
