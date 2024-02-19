@@ -27,14 +27,14 @@ public class UserService {
                     .build();
         }
 
-        public User getUserById(final Long userId) {
-            Optional<User> userAux = repository.findById(userId);
+        public User getUserById(final int userId) {
+            Optional<User> userAux = repository.findById((long) userId);
             return User.builder()
                     .username(userAux.get().getUsername())
                     .build();
         }
-        public void deleteUser(final Long userId) {
-            Optional<User> user = repository.findById(userId);
+        public void deleteUser(final int userId) {
+            Optional<User> user = repository.findById((long) userId);
             repository.delete(user.get());
         }
 
