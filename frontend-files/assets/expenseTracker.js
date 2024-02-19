@@ -50,18 +50,18 @@ function clearInput() {
   document.getElementById("amount").value = "";
 }
 
-
 async function sendJSON(nameExpense, amount) {
-  const object = { nameExpense, amount };
+  let number = 1;
+  const object = { number, nameExpense, amount };
   const jsonObject = JSON.stringify(object);
   console.log(jsonObject);
 
-  const response = await fetch('http://localhost:8080/user', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: jsonObject 
+  const response = await fetch("http://localhost:8080/user/expense", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: jsonObject,
   });
 
   const data = await response.text();
