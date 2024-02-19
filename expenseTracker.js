@@ -12,7 +12,7 @@ function addExpense() {
   document.getElementById("total").innerText = total.toFixed(2);
   renderExpenses();
   clearInput();
-  sendJSON(name, amount);
+sendJSON(name, amount);
 }
   if(amount<0.01)
   {
@@ -38,7 +38,6 @@ function renderExpenses() {
                     <button id="remove" onclick="removeExpense(${index})"> x </button>
                 `;
     expensesDiv.appendChild(expenseDiv);
-    test();
   });
 }
 
@@ -48,17 +47,7 @@ function clearInput(){
 }
 
 function sendJSON(name, amount){
-const object={name, amount};
-const jsonObject = JSON.stringify(object);
-console.log(jsonObject);
-}
-
-
-function test(){
-  const id = 1;
-  const name = "pedro";
-  const password = "123";
-  const object={id,name, password};
+  const object={name, amount};
   const jsonObject = JSON.stringify(object);
   console.log(jsonObject);
-}
+  }
