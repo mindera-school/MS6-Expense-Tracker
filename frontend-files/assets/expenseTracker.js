@@ -1,19 +1,26 @@
 let total = 0;
 const expenses = [];
 
+let nameExpense;
+let amount;
 function addExpense() {
-  const name = document.getElementById("name").value;
-  const amount = parseFloat(document.getElementById("amount").value);
-  if(amount>0){
-    expenses.push({ name, amount });
-  total += amount;
-  document.getElementById("total").innerText = total.toFixed(2);
-  renderExpenses();
-  clearInput();
-}
-  if(amount<0.01)
-  {
-    alert("Please enter a positive amount");
+  if (amount < 0.01) {
+    alert("Please enter a valid amount");
+  }
+  if (nameExpense === "") {
+    alert("Please enter a name to your expense");
+  }
+
+  nameExpense = document.getElementById("name").value;
+  amount = parseFloat(document.getElementById("amount").value);
+
+  if (amount > 0) {
+    expenses.push({ nameExpense, amount });
+    total += amount;
+    document.getElementById("total").innerText = total.toFixed(2);
+    renderExpenses();
+    clearInput();
+    sendJSON(nameExpense, amount);
   }
 }
 
@@ -38,7 +45,13 @@ function renderExpenses() {
   });
 }
 
-function clearInput(){
-  document.getElementById("name").value ="";
-  document.getElementById("amount").value ="";
+function clearInput() {
+  document.getElementById("name").value = "";
+  document.getElementById("amount").value = "";
+}
+
+function sendJSON(nameExpense, amount) {
+  const object = { nameExpense, amount };
+  const jsonObject = JSON.stringify(object);
+  console.log(jsonObject);
 }
