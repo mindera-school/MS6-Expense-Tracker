@@ -3,6 +3,7 @@ package com.example.punished.expensetracker.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.Reference;
 
 @Entity
 @NoArgsConstructor
@@ -20,7 +21,7 @@ public class Expense {
         @Column
         private Long id;
         @Column(nullable = false)
-        private String name;
+        private String description;
         @Column(nullable = false)
         private int cost;
 
