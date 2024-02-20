@@ -29,12 +29,6 @@ public class ExpenseController {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(service.addExpense(expense)).getBody();
         }
-
-        @GetMapping("/{expenseId}")
-        public Optional<Expense> getExpenseById(@PathVariable final int expenseId) {
-            return service.getExpenseById(expenseId);
-        }
-
         @DeleteMapping("/{expenseId}")
         public void deleteExpense(@PathVariable final int expenseId) {
             service.deleteExpense(expenseId);
