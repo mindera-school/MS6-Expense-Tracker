@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/login_menu.css" />
     <link rel="stylesheet" href="./assets/reset.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,25 +17,76 @@
     />
     <html>
       <head>
-        <title>Expense Tracker</title>
+        <title>Login</title>
       </head>
       <body>
-        <div id="container-all">
-          <header>
-            <h1>Expense Tracker</h1>
-          </header>
+        <form>
+          <div class="container">
+            <h1>Login</h1>
 
-          <div id="container-expense">
-            <input id="name" type="text" placeholder="Expense" />
-            <input id="amount" type="number" min="0" placeholder="Amount" />
-            <button id="add" onclick="addExpense()">+</button>
-            <h2>Total: <span id="total"> 0 </span> €</h2>
+            <input
+              type="text"
+              id="email"
+              placeholder="Email"
+              name="email"
+              required
+            />
+
+            <input
+              type="text"
+              id="username"
+              placeholder="Username"
+              name="username"
+              required
+            />
+
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              name="password"
+              required
+            />
+
+            <button type="submit" id="login">Login</button>
+            <button id="register-menu">Sign Up</button>
           </div>
-          <div id="expenses"></div>
-        </div>
+        </form>
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span id="close">&times;</span>
+            <h2>Register</h2>
+            <p>
+              <input
+                type="text"
+                id="email"
+                placeholder="Email"
+                name="email"
+                required
+              />
 
-        <script src="./assets/expenseTracker.js"></script>
+              <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                name="username"
+                required
+              />
+
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                name="password"
+                required
+              />
+
+              <button id="register">Register</button>
+            </p>
+          </div>
+        </div>
       </body>
+      <script src="./assets/expenseTracker.js"></script>
     </html>
   </head>
 </html>
