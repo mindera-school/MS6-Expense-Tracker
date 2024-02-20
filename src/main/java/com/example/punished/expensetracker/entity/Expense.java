@@ -24,7 +24,7 @@ public class Expense {
         private String description;
         @Column(nullable = false)
         private Integer cost;
-        @Column(nullable = false)
-        private Integer userId;
+//        @Column(nullable = false)
+//        private Integer userId;
 
     }

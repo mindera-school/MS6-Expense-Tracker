@@ -1,6 +1,7 @@
 package com.example.punished.expensetracker.controller;
 
 import com.example.punished.expensetracker.dto.ExpenseDto;
+import com.example.punished.expensetracker.dto.ExpenseGetDto;
 import com.example.punished.expensetracker.entity.Expense;
 import com.example.punished.expensetracker.service.ExpenseService;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ public class ExpenseController {
         private final ExpenseService service;
 
         @GetMapping
-        public List<ExpenseDto> getExpenses() {
+        public List<ExpenseGetDto> getExpenses() {
             return service.getExpenses();
         }
 
