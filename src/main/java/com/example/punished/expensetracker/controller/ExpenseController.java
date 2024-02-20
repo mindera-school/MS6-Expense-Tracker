@@ -11,7 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/user/{userId}/expense")
+@RequestMapping("/user/expense")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 @RequiredArgsConstructor
 public class ExpenseController {
 
