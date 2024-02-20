@@ -1,31 +1,31 @@
 let total = 0;
 const expenses = [];
 
-let nameExpense;
-let amount;
+let description;
+let cost;
 function addExpense() {
-  nameExpense = document.getElementById("name").value;
-  amount = parseFloat(document.getElementById("amount").value);
+  desc = document.getElementById("name").value;
+  cost = parseFloat(document.getElementById("cost").value);
 
-  if (amount < 0.01) {
-    alert("Please enter a valid amount");
+  if (cost < 0.01) {
+    alert("Please enter a valid cost");
   }
-  if (nameExpense === "") {
+  if (desc === "") {
     alert("Please enter a name to your expense");
   }
 
-  if (amount > 0) {
-    expenses.push({ nameExpense, amount });
-    total += amount;
+  if (cost > 0) {
+    expenses.push({ desc, cost });
+    total += cost;
     document.getElementById("total").innerText = total.toFixed(2);
     renderExpenses();
     clearInput();
-    sendJSON(nameExpense, amount);
+    sendJSON(desc, cost);
   }
 }
 
 function removeExpense(index) {
-  total -= expenses[index].amount;
+  total -= expenses[index].cost;
   expenses.splice(index, 1);
   document.getElementById("total").innerText = total.toFixed(2);
   renderExpenses();
@@ -38,7 +38,7 @@ function renderExpenses() {
     const expenseDiv = document.createElement("div");
     expenseDiv.className = "expense";
     expenseDiv.innerHTML = `
-                    ${expense.nameExpense}: ${expense.amount.toFixed(2)} €
+                    ${expense.desc}: ${expense.cost.toFixed(2)} €
                     <button id="remove" onclick="removeExpense(${index})"> x </button>
                 `;
     expensesDiv.appendChild(expenseDiv);
@@ -47,11 +47,16 @@ function renderExpenses() {
 
 function clearInput() {
   document.getElementById("name").value = "";
-  document.getElementById("amount").value = "";
+  document.getElementById("cost").value = "";
 }
 
+<<<<<<< Updated upstream
 async function sendJSON(nameExpense, amount) {
   const object = {nameExpense, amount };
+=======
+async function sendJSON(desc, cost) {
+  const object = { desc, cost };
+>>>>>>> Stashed changes
   const jsonObject = JSON.stringify(object);
   console.log(jsonObject);
   const response = await fetch("http://localhost:8080/expense", {
