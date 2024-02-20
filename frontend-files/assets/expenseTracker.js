@@ -4,23 +4,23 @@ const expenses = [];
 let description;
 let cost;
 function addExpense() {
-  desc = document.getElementById("name").value;
+  description = document.getElementById("name").value;
   cost = parseFloat(document.getElementById("cost").value);
 
   if (cost < 0.01) {
     alert("Please enter a valid cost");
   }
-  if (desc === "") {
+  if (description === "") {
     alert("Please enter a name to your expense");
   }
 
   if (cost > 0) {
-    expenses.push({ desc, cost });
+    expenses.push({ description, cost });
     total += cost;
     document.getElementById("total").innerText = total.toFixed(2);
     renderExpenses();
     clearInput();
-    sendJSON(desc, cost);
+    sendJSON(description, cost);
   }
 }
 
@@ -38,7 +38,7 @@ function renderExpenses() {
     const expenseDiv = document.createElement("div");
     expenseDiv.className = "expense";
     expenseDiv.innerHTML = `
-                    ${expense.desc}: ${expense.cost.toFixed(2)} €
+                    ${expense.description}: ${expense.cost.toFixed(2)} €
                     <button id="remove" onclick="removeExpense(${index})"> x </button>
                 `;
     expensesDiv.appendChild(expenseDiv);
@@ -50,13 +50,8 @@ function clearInput() {
   document.getElementById("cost").value = "";
 }
 
-<<<<<<< Updated upstream
-async function sendJSON(nameExpense, amount) {
-  const object = {nameExpense, amount };
-=======
-async function sendJSON(desc, cost) {
-  const object = { desc, cost };
->>>>>>> Stashed changes
+async function sendJSON(description, cost) {
+  const object = { description, cost };
   const jsonObject = JSON.stringify(object);
   console.log(jsonObject);
   const response = await fetch("http://localhost:8080/expense", {
