@@ -1,5 +1,6 @@
 package com.example.punished.expensetracker.controller;
 
+import com.example.punished.expensetracker.dto.ExpenseDto;
 import com.example.punished.expensetracker.entity.Expense;
 import com.example.punished.expensetracker.service.ExpenseService;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +25,7 @@ public class ExpenseController {
         }
 
         @PostMapping
-        public Expense addExpense(@RequestBody Expense expense) {
+        public ExpenseDto addExpense(@RequestBody ExpenseDto expense) {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(service.addExpense(expense)).getBody();
         }
