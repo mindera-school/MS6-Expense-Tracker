@@ -1,6 +1,7 @@
 package com.example.punished.expensetracker.service;
 
 import com.example.punished.expensetracker.dto.ExpenseDto;
+import com.example.punished.expensetracker.dto.ExpenseGetDto;
 import com.example.punished.expensetracker.entity.Expense;
 import com.example.punished.expensetracker.exceptions.InvalidRequestException;
 import com.example.punished.expensetracker.repository.ExpenseRepository;
@@ -16,9 +17,9 @@ public class ExpenseService {
 
     private final ExpenseRepository repository;
 
-    public List<ExpenseDto> getExpenses() {
+    public List<ExpenseGetDto> getExpenses() {
         return repository.findAll().stream()
-                .map(e-> new ExpenseDto(e.getDescription(),e.getCost()))
+                .map(e-> new ExpenseGetDto(e.getId(), e.getDescription(),e.getCost()))
                 .toList();
     }
 

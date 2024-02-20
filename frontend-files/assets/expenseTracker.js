@@ -35,7 +35,7 @@ function addExpense() {
     alert("Please enter a name to your expense");
   }
 
-  if (cost > 0) {
+  if (cost > 0.01) {
     expenses.push({ description, cost });
     total += cost;
     document.getElementById("total").innerText = total.toFixed(2);
@@ -45,10 +45,8 @@ function addExpense() {
   }
 }
 function removeExpense(index) {
-  total -= expenses[index].cost;
-  expenses.splice(index, 1);
-  document.getElementById("total").innerText = total.toFixed(2);
-  renderExpenses();
+  const expense = expenses[index];
+  deleteExpense(expense.id);
 }
 function clearInput() {
   document.getElementById("name").value = "";
@@ -57,6 +55,11 @@ function clearInput() {
 function renderExpenses() {
   const expensesDiv = document.getElementById("expenses");
   expensesDiv.innerHTML = "";
+
+  const total = expenses.reduce((acc, expense) => acc + expense.cost, 0);
+  const totalSpan = document.getElementById("total");
+  totalSpan.innerText = total.toFixed(2);
+
   expenses.forEach((expense, index) => {
     const expenseDiv = document.createElement("div");
     expenseDiv.className = "expense";
@@ -80,6 +83,19 @@ async function getData() {
   expenses = await response.json();
   console.log(expenses);
   return expenses;
+}
+async function deleteExpense(id) {
+  const response = await fetch(`http://localhost:8080/expense/${id}`, {
+      method: "DELETE",
+      headers: {
+          "Content-Type": "application/json",
+      },
+  });
+  if (response.ok) {
+    const index = expenses.findIndex((expense) => expense.id === id);
+    expenses.splice(index, 1);
+    renderExpenses();
+  }
 }
 
 getData().then (()=>{
