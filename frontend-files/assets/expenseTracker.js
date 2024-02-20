@@ -1,8 +1,29 @@
+//----------------------------------------------------------------
+//Variables
+//----------------------------------------------------------------
 let total = 0;
-const expenses = [];
+let expenses = [];
 
 let description;
 let cost;
+//----------------------------------------------------------------
+//Send JSON
+//----------------------------------------------------------------
+async function sendJSON(description, cost) {
+  const object = { description, cost };
+  const jsonObject = JSON.stringify(object);
+  const response = await fetch("http://localhost:8080/expense", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: jsonObject,
+  });
+  const data = await response.text();
+}
+//----------------------------------------------------------------
+//List controller
+//----------------------------------------------------------------
 function addExpense() {
   description = document.getElementById("name").value;
   cost = parseFloat(document.getElementById("amount").value);
@@ -23,14 +44,16 @@ function addExpense() {
     sendJSON(description, cost);
   }
 }
-
 function removeExpense(index) {
   total -= expenses[index].cost;
   expenses.splice(index, 1);
   document.getElementById("total").innerText = total.toFixed(2);
   renderExpenses();
 }
-
+function clearInput() {
+  document.getElementById("name").value = "";
+  document.getElementById("amount").value = "";
+}
 function renderExpenses() {
   const expensesDiv = document.getElementById("expenses");
   expensesDiv.innerHTML = "";
@@ -44,26 +67,21 @@ function renderExpenses() {
     expensesDiv.appendChild(expenseDiv);
   });
 }
-
-function clearInput() {
-  document.getElementById("name").value = "";
-  document.getElementById("amount").value = "";
-}
-
-async function sendJSON(description, cost) {
-  const object = { description, cost };
-  const jsonObject = JSON.stringify(object);
-  console.log(jsonObject);
+//----------------------------------------------------------------
+//Get JSON
+//----------------------------------------------------------------
+async function getData() {
   const response = await fetch("http://localhost:8080/expense", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: jsonObject,
+      method: "GET",
+      headers: {
+          "Content-Type": "application/json",
+      },
   });
-
-  const data = await response.text();
-  console.log(data);
+  expenses = await response.json();
+  console.log(expenses);
+  return expenses;
 }
 
-
+getData().then (()=>{
+  renderExpenses();
+});
