@@ -26,12 +26,12 @@ public class ExpenseService {
             return repository.save(expense);
         }
 
-        public Optional<Expense> getExpenseById(final Long expenseId) {
+        public Optional<Expense> getExpenseById(final int expenseId) {
             Optional<Expense> expenseAux = repository.findById(expenseId);
             return expenseAux;
         }
 
-        public void deleteExpense(final Long expenseId) {
+        public void deleteExpense(final int expenseId) {
             Optional<Expense> expense = repository.findById(expenseId);
             repository.delete(expense.get());
         }

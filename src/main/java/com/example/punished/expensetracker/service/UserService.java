@@ -28,13 +28,13 @@ public class UserService {
         }
 
         public User getUserById(final int userId) {
-            Optional<User> userAux = repository.findById((long) userId);
+            Optional<User> userAux = repository.findById(userId);
             return User.builder()
                     .username(userAux.get().getUsername())
                     .build();
         }
         public void deleteUser(final int userId) {
-            Optional<User> user = repository.findById((long) userId);
+            Optional<User> user = repository.findById(userId);
             repository.delete(user.get());
         }
 
