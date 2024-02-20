@@ -34,8 +34,10 @@ public class UserService {
                     .build();
         }
         public void deleteUser(final int userId) {
-            Optional<User> user = repository.findById(userId);
-            repository.delete(user.get());
+            if (repository.findById(userId).isEmpty()) {
+                throw new InvalidRequestException("User not found");
+            }
+            repository.deleteById(userId);
         }
 
 }
