@@ -12,7 +12,7 @@ import org.springframework.data.annotation.Reference;
 @Builder
 @AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Table(name = "Expenses")
+@Table(name = "\"expenses\"")
 @Data
 public class Expense {
 
