@@ -4,15 +4,15 @@ const expenses = [];
 let nameExpense;
 let amount;
 function addExpense() {
+  nameExpense = document.getElementById("name").value;
+  amount = parseFloat(document.getElementById("amount").value);
+
   if (amount < 0.01) {
     alert("Please enter a valid amount");
   }
   if (nameExpense === "") {
     alert("Please enter a name to your expense");
   }
-
-  nameExpense = document.getElementById("name").value;
-  amount = parseFloat(document.getElementById("amount").value);
 
   if (amount > 0) {
     expenses.push({ nameExpense, amount });
@@ -38,7 +38,7 @@ function renderExpenses() {
     const expenseDiv = document.createElement("div");
     expenseDiv.className = "expense";
     expenseDiv.innerHTML = `
-                    ${expense.name}: ${expense.amount.toFixed(2)} €
+                    ${expense.nameExpense}: ${expense.amount.toFixed(2)} €
                     <button id="remove" onclick="removeExpense(${index})"> x </button>
                 `;
     expensesDiv.appendChild(expenseDiv);
@@ -67,21 +67,4 @@ async function sendJSON(nameExpense, amount) {
   console.log(data);
 }
 
-//-----Modal
-let modal = document.getElementById("modal");
-let openModal = document.getElementById("register-menu");
-let closeModal = document.getElementById("close");
 
-openModal.addEventListener("click", () => {
-  modal.style.display = "block";
-});
-
-closeModal.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-window.onclick = function(event){
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
