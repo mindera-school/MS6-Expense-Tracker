@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/user/expense")
+@RequestMapping("/expense")
 @CrossOrigin(origins = "http://127.0.0.1:5500")
 @RequiredArgsConstructor
 public class ExpenseController {
@@ -30,12 +30,12 @@ public class ExpenseController {
         }
 
         @GetMapping("/{expenseId}")
-        public Optional<Expense> getExpenseById(@PathVariable final Long expenseId) {
+        public Optional<Expense> getExpenseById(@PathVariable final int expenseId) {
             return service.getExpenseById(expenseId);
         }
 
         @DeleteMapping("/{expenseId}")
-        public void deleteExpense(@PathVariable final Long expenseId) {
+        public void deleteExpense(@PathVariable final int expenseId) {
             service.deleteExpense(expenseId);
         }
     }

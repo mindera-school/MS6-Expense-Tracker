@@ -67,6 +67,7 @@ async function sendJSON(nameExpense, amount) {
   console.log(data);
 }
 
+//-----Modal
 let modal = document.getElementById("modal");
 let openModal = document.getElementById("register-menu");
 let closeModal = document.getElementById("close");
