@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 @RequiredArgsConstructor
 public class UserController {
 
