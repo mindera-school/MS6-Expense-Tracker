@@ -16,12 +16,13 @@ public class ExpenseService {
 
     private final ExpenseRepository repository;
 
-    public List<Expense> getExpenses() {
-        return repository.findAll().stream().toList();
+    public List<ExpenseDto> getExpenses() {
+        return repository.findAll().stream()
+                .map(e-> new ExpenseDto(e.getDescription(),e.getCost()))
+                .toList();
     }
 
     public ExpenseDto addExpense(ExpenseDto expense) {
-        System.out.println(expense.getCost()+expense.getDescription());
         if (expense.getDescription() == null || expense.getCost() == null) {
             throw new InvalidRequestException("Description, cost cannot be empty");
         }
@@ -31,12 +32,6 @@ public class ExpenseService {
         repository.save(newExpense);
         return expense;
     }
-
-    public Optional<Expense> getExpenseById(final int expenseId) {
-        Optional<Expense> expenseAux = repository.findById(expenseId);
-        return expenseAux;
-    }
-
     public void deleteExpense(final int expenseId) {
         Optional<Expense> expense = repository.findById(expenseId);
         repository.delete(expense.get());

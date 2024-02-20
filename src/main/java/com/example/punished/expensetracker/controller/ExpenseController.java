@@ -20,7 +20,7 @@ public class ExpenseController {
         private final ExpenseService service;
 
         @GetMapping
-        public List<Expense> getExpenses() {
+        public List<ExpenseDto> getExpenses() {
             return service.getExpenses();
         }
 
