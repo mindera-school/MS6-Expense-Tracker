@@ -5,7 +5,7 @@ let description;
 let cost;
 function addExpense() {
   description = document.getElementById("name").value;
-  cost = parseFloat(document.getElementById("cost").value);
+  cost = parseFloat(document.getElementById("amount").value);
 
   if (cost < 0.01) {
     alert("Please enter a valid cost");
@@ -47,7 +47,7 @@ function renderExpenses() {
 
 function clearInput() {
   document.getElementById("name").value = "";
-  document.getElementById("cost").value = "";
+  document.getElementById("amount").value = "";
 }
 
 async function sendJSON(description, cost) {
