@@ -1,31 +1,30 @@
 body {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   /*background: rgb(248,233,233);
   background: linear-gradient(82deg, rgba(248,233,233,1) 0%, rgba(111,170,149,1) 25%, rgba(255, 226, 38, 0.347) 50%, rgba(127,175,134,1) 75%, rgba(248,233,233,1) 100%);
   */
+  height: 100lvw;
+  padding-top: 2em;
+  margin-bottom: 2em;
   background: rgb(10, 20, 22);
   background: linear-gradient(
     82deg,
-    rgba(10, 20, 22, 1) 0%,
-    rgba(24, 50, 44, 1) 20%,
-    rgba(111, 170, 149, 1) 35%,
-    rgba(222, 202, 158, 0.881) 50%,
-    rgba(111, 170, 149, 1) 65%,
-    rgba(24, 50, 44, 1) 80%,
-    rgba(10, 20, 22, 1) 100%
-  );
+    rgba(10, 20, 22) 0%,
+    rgba(24, 50, 44, 0.9) 20%,
+    rgba(111, 170, 149, 0.8) 35%,
+    rgba(119, 115, 106, 0.5) 50%,
+    rgba(111, 170, 149, 0.8) 65%,
+    rgba(24, 50, 44, 0.9) 80%,
+    rgba(10, 20, 22) 100%);
 }
 #container-all {
   display: inline-table;
   border-radius: 25px;
-  border-style: dashed;
-  border-color: #42f3ca;
-  background-color: rgba(108, 116, 116, 0.814);
+  border: #42f3ca solid 3px;
+  background-color: rgba(56, 57, 57, 0.917);
   padding: 50px;
-  height: 100vh;
   font-family: "Montserrat", sans-serif;
 }
 h1 {
