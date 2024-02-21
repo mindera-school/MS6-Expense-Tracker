@@ -2,30 +2,73 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  /*background: rgb(248,233,233);
-  background: linear-gradient(82deg, rgba(248,233,233,1) 0%, rgba(111,170,149,1) 25%, rgba(255, 226, 38, 0.347) 50%, rgba(127,175,134,1) 75%, rgba(248,233,233,1) 100%);
-  */
   height: 100lvw;
-  padding-top: 2em;
-  margin-bottom: 2em;
-  background: rgb(10, 20, 22);
   background: linear-gradient(
     82deg,
-    rgba(10, 20, 22) 0%,
-    rgba(24, 50, 44, 0.9) 20%,
-    rgba(111, 170, 149, 0.8) 35%,
-    rgba(119, 115, 106, 0.5) 50%,
-    rgba(111, 170, 149, 0.8) 65%,
-    rgba(24, 50, 44, 0.9) 80%,
-    rgba(10, 20, 22) 100%);
+    rgba(248, 233, 233, 1) 0%,
+    rgba(111, 170, 149, 1) 25%,
+    rgba(255, 255, 255, 0.347) 50%,
+    rgba(111, 170, 149, 1) 75%,
+    rgba(248, 233, 233, 1) 100%
+  );
 }
+.toggle-container {
+  position:fixed;
+  top: 20px; 
+  right: 20px;
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-label {
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background-color: #666;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.toggle-inner {
+  display: block;
+  width: 20px;
+  height: 26px;
+  margin: 2px;
+  background-color: white; 
+  border-radius: 55%;
+  transition: margin-left 0.3s;
+  transform: scale(0.9);
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-inner {
+  margin-left: 1.2em;
+}
+
+.dark-mode {
+  background: linear-gradient(
+    82deg,
+    rgb(1, 2, 2) 0%,
+    rgba(2, 4, 4, 0.9) 20%,
+    rgba(2, 3, 3, 0.898) 35%,
+    rgba(13, 12, 9, 0.879) 50%,
+    rgba(2, 3, 3, 0.898) 65%,
+    rgba(2, 4, 4, 0.9) 80%,
+    rgb(1, 2, 2) 100%
+  );
+}
+
 #container-all {
   display: inline-table;
   border-radius: 25px;
   border: #42f3ca solid 3px;
-  background-color: rgba(56, 57, 57, 0.917);
+  background-color: rgba(56, 57, 57, 0.267);
   padding: 50px;
   font-family: "Montserrat", sans-serif;
+  margin-bottom: 2em;
+  margin-top: 2em;
+
 }
 h1 {
   margin-top: 5%;
@@ -89,7 +132,7 @@ span {
       rgb(222, 222, 222),
       #42f3ca,
       #7dd5e2,
-      rgb(91, 91, 92)
+      rgba(91, 91, 92, 0.12)
     )
     1;
   margin: 0.2em;
