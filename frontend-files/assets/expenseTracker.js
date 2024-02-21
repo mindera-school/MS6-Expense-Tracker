@@ -97,7 +97,6 @@ async function deleteExpense(id) {
     renderExpenses();
   }
 }
-
 getData().then (()=>{
   renderExpenses();
 });
