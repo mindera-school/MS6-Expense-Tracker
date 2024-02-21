@@ -1,5 +1,6 @@
 package com.example.punished.expensetracker.controller;
 
+import com.example.punished.expensetracker.dto.UserDto;
 import com.example.punished.expensetracker.entity.User;
 import com.example.punished.expensetracker.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -24,13 +25,13 @@ public class UserController {
     }
 
     @PostMapping
-    public User addUser(@RequestBody User user) {
+    public UserDto addUser(@RequestBody UserDto user) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.addUser(user)).getBody();
     }
 
     @GetMapping("/{userId}")
-    public User getUserById(@PathVariable final int userId) {
+    public UserDto getUserById(@PathVariable final int userId) {
         return service.getUserById(userId);
     }
 
