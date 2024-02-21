@@ -15,71 +15,67 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <html>
-      <head>
-        <title>Login</title>
-      </head>
-      <body>
-        <form>
-          <div class="container">
-            <h1>Login</h1>
-
-            <input
-              type="text"
-              id="email"
-              placeholder="Email"
-              name="email"
-              required
-            />
-
-            <input
-              type="password"
-              id="password"
-              placeholder="Password"
-              name="password"
-              required
-            />
-
-            <button type="submit" id="login">Login</button>
-            <button id="register-menu">Sign Up</button>
-          </div>
-        </form>
-        <div id="modal" class="modal">
-          <div class="modal-content">
-            <span id="close">&times;</span>
-            <h2>Register</h2>
-            <p>
-              <input
-                type="text"
-                id="email"
-                placeholder="Email"
-                name="email"
-                required
-              />
-
-              <input
-                type="text"
-                id="username"
-                placeholder="Username"
-                name="username"
-                required
-              />
-
-              <input
-                type="password"
-                id="password"
-                placeholder="Password"
-                name="password"
-                required
-              />
-
-              <button id="register">Register</button>
-            </p>
-          </div>
-        </div>
-      </body>
-      <script src="./assets/expenseTracker.js"></script>
-      <script src="./assets/modalControl.js"></script>
-    </html>
+    <title>Login</title>
   </head>
+  <body>
+    <form>
+      <div class="container">
+        <h1>Login</h1>
+
+        <input
+          type="text"
+          id="email-log"
+          placeholder="Email"
+          name="email"
+          required
+        />
+
+        <input
+          type="password"
+          id="password-log"
+          placeholder="Password"
+          name="password"
+          required
+        />
+
+        <button type="submit" id="login">Login</button>
+        <button id="register-menu">Sign Up</button>
+      </div>
+    </form>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="close">&times;</span>
+        <h2>Register</h2>
+        <p>
+          <input
+            type="text"
+            id="email-reg"
+            placeholder="Email"
+            name="email"
+            required
+          />
+
+          <input
+            type="text"
+            id="username-reg"
+            placeholder="Username"
+            name="username"
+            required
+          />
+
+          <input
+            type="password"
+            id="password-reg"
+            placeholder="Password"
+            name="password"
+            required
+          />
+
+          <button id="register">Register</button>
+        </p>
+      </div>
+    </div>
+    <script src="./assets/expenseTracker.js"></script>
+    <script src="./assets/modalControl.js"></script>
+  </body>
 </html>
