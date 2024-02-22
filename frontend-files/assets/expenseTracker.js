@@ -20,6 +20,9 @@ async function sendJSON(description, cost) {
     body: jsonObject,
   });
   const data = await response.text();
+  if(data){
+    getData();
+  }
 }
 //----------------------------------------------------------------
 //List controller
