@@ -20,6 +20,9 @@ async function sendJSON(description, cost) {
     body: jsonObject,
   });
   const data = await response.text();
+  if (data) {
+    getData();
+  }
 }
 //----------------------------------------------------------------
 //List controller
@@ -75,10 +78,10 @@ function renderExpenses() {
 //----------------------------------------------------------------
 async function getData() {
   const response = await fetch("http://localhost:8080/expense", {
-      method: "GET",
-      headers: {
-          "Content-Type": "application/json",
-      },
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
   expenses = await response.json();
   console.log(expenses);
@@ -86,10 +89,10 @@ async function getData() {
 }
 async function deleteExpense(id) {
   const response = await fetch(`http://localhost:8080/expense/${id}`, {
-      method: "DELETE",
-      headers: {
-          "Content-Type": "application/json",
-      },
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
   if (response.ok) {
     const index = expenses.findIndex((expense) => expense.id === id);
@@ -97,6 +100,7 @@ async function deleteExpense(id) {
     renderExpenses();
   }
 }
-getData().then (()=>{
+
+getData().then(() => {
   renderExpenses();
 });
