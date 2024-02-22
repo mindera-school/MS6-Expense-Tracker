@@ -4,20 +4,72 @@ body {
   justify-content: center;
   height: 100lvh;
   width: 100lvw;
-  background: rgb(10, 20, 22);
   background: linear-gradient(
     82deg,
-    rgba(10, 20, 22) 0%,
-    rgba(24, 50, 44, 0.9) 20%,
-    rgba(111, 170, 149, 0.8) 35%,
-    rgba(222, 202, 158, 0.5) 50%,
-    rgba(111, 170, 149, 0.8) 65%,
-    rgba(24, 50, 44, 0.9) 80%,
-    rgba(10, 20, 22) 100%
+    rgba(248, 233, 233, 1) 0%,
+    rgba(111, 170, 149, 1) 25%,
+    rgba(255, 255, 255, 0.347) 50%,
+    rgba(111, 170, 149, 1) 75%,
+    rgba(248, 233, 233, 1) 100%
+  );
+}
+.toggle-container {
+  position:fixed;
+  top: 20px; 
+  right: 20px;
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-label {
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background-color: #666;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.toggle-inner {
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin: 2px;
+  background-color: white; /* Light mode inner color */
+  border-radius: 50%;
+  transition: margin-left 0.3s;
+  transform: scale(.9);
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-inner {
+  margin-left: 32px;
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-switch {
+  transform: translateX(30px);
+}
+
+.dark-mode {
+  background: linear-gradient(
+    82deg,
+    rgb(1, 2, 2) 0%,
+    rgba(2, 4, 4, 0.9) 20%,
+    rgba(2, 3, 3, 0.898) 35%,
+    rgba(13, 12, 9, 0.879) 50%,
+    rgba(2, 3, 3, 0.898) 65%,
+    rgba(2, 4, 4, 0.9) 80%,
+    rgb(1, 2, 2) 100%
   );
 }
 
-h1{
+.dark-mode .toggle-inner {
+  background-color: white;
+}
+
+
+h1 {
   text-align: center;
   font-family: "Montserrat";
   font-size: 55px;
@@ -26,13 +78,12 @@ h1{
 }
 
 h2 {
-    text-align: center;
-    font-family: "Montserrat";
-    font-size: 55px;
-    margin-bottom: 40px;
-    color: #04edb7;
-  }
-  
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 55px;
+  margin-bottom: 40px;
+  color: #3bab91;
+}
 
 #login {
   width: 25%;
@@ -165,7 +216,7 @@ input[type="email"] {
   cursor: pointer;
 }
 .modal-content {
-  background-color: rgba(50, 240, 205,0.9);
+  background-color: rgba(50, 240, 205, 0.965);
   border: 10px solid #42f3ca;
   margin: 15% auto;
   padding: 20px;
