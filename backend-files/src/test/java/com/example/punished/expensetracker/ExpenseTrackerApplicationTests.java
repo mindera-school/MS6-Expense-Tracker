@@ -1,4 +1,5 @@
-package com.example.punished.expensetracker;
+package java.com.example.punished.expensetracker;
+
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
