@@ -27,6 +27,7 @@ public class UserService {
         repository.save(User.builder()
                 .username(user.getUsername())
                         .email(user.getEmail())
+                        .password(user.getPassword())
                 .build());
         return user;
     }
