@@ -7,22 +7,17 @@ let expenses = [];
 let description;
 let cost;
 //----------------------------------------------------------------
-//Send JSON
+//Clear input
 //----------------------------------------------------------------
-async function sendJSON(description, cost) {
-  const object = { description, cost };
-  const jsonObject = JSON.stringify(object);
-  const response = await fetch("http://localhost:8080/expense", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: jsonObject,
-  });
-  const data = await response.text();
+function clearInput() {
+  document.getElementById("name").value = "";
+  document.getElementById("amount").value = "";
 }
 //----------------------------------------------------------------
 //List controller
+//----------------------------------------------------------------
+//----------------------------------------------------------------
+//Fucntion add Expense
 //----------------------------------------------------------------
 function addExpense() {
   description = document.getElementById("name").value;
@@ -44,14 +39,47 @@ function addExpense() {
     sendJSON(description, cost);
   }
 }
+//----------------------------------------------------------------
+//Send JSON
+//----------------------------------------------------------------
+async function sendJSON(description, cost) {
+  const object = { description, cost };
+  const jsonObject = JSON.stringify(object);
+  const response = await fetch("http://localhost:8080/expense", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: jsonObject,
+  });
+  const data = await response.text();
+}
+//----------------------------------------------------------------
+//Function Remove expense
+//----------------------------------------------------------------
 function removeExpense(index) {
   const expense = expenses[index];
   deleteExpense(expense.id);
 }
-function clearInput() {
-  document.getElementById("name").value = "";
-  document.getElementById("amount").value = "";
+//----------------------------------------------------------------
+//Delete JSON
+//----------------------------------------------------------------
+async function deleteExpense(id) {
+  const response = await fetch(`http://localhost:8080/expense/${id}`, {
+      method: "DELETE",
+      headers: {
+          "Content-Type": "application/json",
+      },
+  });
+  if (response.ok) {
+    const index = expenses.findIndex((expense) => expense.id === id);
+    expenses.splice(index, 1);
+    renderExpenses();
+  }
 }
+//----------------------------------------------------------------
+//Render Expenses board
+//----------------------------------------------------------------
 function renderExpenses() {
   const expensesDiv = document.getElementById("expenses");
   expensesDiv.innerHTML = "";
@@ -84,20 +112,10 @@ async function getData() {
   console.log(expenses);
   return expenses;
 }
-async function deleteExpense(id) {
-  const response = await fetch(`http://localhost:8080/expense/${id}`, {
-      method: "DELETE",
-      headers: {
-          "Content-Type": "application/json",
-      },
-  });
-  if (response.ok) {
-    const index = expenses.findIndex((expense) => expense.id === id);
-    expenses.splice(index, 1);
-    renderExpenses();
-  }
-}
 
+//----------------------------------------------------------------
+//When page is loaded
+//----------------------------------------------------------------
 getData().then (()=>{
   renderExpenses();
 });
