@@ -1,8 +1,12 @@
-let username = document.getElementById("username");
-let password = document.getElementById("password");
-let email = document.getElementById("email");
+let username = document.getElementById("username-reg");
+let password = document.getElementById("password-reg");
+let email = document.getElementById("email-reg");
 
 const btnRegister = document.getElementById("register");
+
+btnRegister.addEventListener('click', () =>{
+  register();
+});
 
 function register() {
   if (username.value === "" || password.value === "" || email.value === "") {
@@ -15,7 +19,7 @@ async function sendJSONRegister(username, password, email) {
   const object = { username, password, email };
   const jsonObject = JSON.stringify(object);
   console.log(jsonObject);
-  const response = await fetch("http://localhost:8080/user", {
+  const response = await fetch("http://localhost:8080/user/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

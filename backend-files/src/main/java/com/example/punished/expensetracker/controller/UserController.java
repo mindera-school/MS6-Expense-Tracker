@@ -24,7 +24,7 @@ public class UserController {
         return service.getUsers();
     }
 
-    @PostMapping
+    @PostMapping("/register")
     public UserDto addUser(@RequestBody UserDto user) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.addUser(user)).getBody();

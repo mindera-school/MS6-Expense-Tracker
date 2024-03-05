@@ -1,16 +1,14 @@
 package com.example.punished.expensetracker.controller;
 
-import com.example.punished.expensetracker.dto.ExpenseDto;
 import com.example.punished.expensetracker.dto.ExpenseGetDto;
-import com.example.punished.expensetracker.entity.Expense;
 import com.example.punished.expensetracker.service.ExpenseService;
+import com.example.punished.expensetracker.dto.ExpenseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/expense")
