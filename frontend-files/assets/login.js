@@ -19,7 +19,7 @@ async function sendJSONRegister(username, password, email) {
   const object = { username, password, email };
   const jsonObject = JSON.stringify(object);
   console.log(jsonObject);
-  const response = await fetch("http://localhost:8080/user", {
+  const response = await fetch("http://localhost:8080/user/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
