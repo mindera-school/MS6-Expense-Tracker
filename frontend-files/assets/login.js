@@ -1,6 +1,6 @@
-let username = document.getElementById("username");
-let password = document.getElementById("password");
-let email = document.getElementById("email");
+let username = document.getElementById("username-reg");
+let password = document.getElementById("password-reg");
+let email = document.getElementById("email-reg");
 
 const btnRegister = document.getElementById("register");
 
