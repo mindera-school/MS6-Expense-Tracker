@@ -4,6 +4,10 @@ let email = document.getElementById("email-reg");
 
 const btnRegister = document.getElementById("register");
 
+btnRegister.addEventListener('click', () =>{
+  register();
+});
+
 function register() {
   if (username.value === "" || password.value === "" || email.value === "") {
     alert("Please enter");
